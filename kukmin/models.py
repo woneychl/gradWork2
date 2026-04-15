@@ -3,6 +3,14 @@ from sqlalchemy.dialects.postgresql import UUID
 from database import Base
 import uuid
 
+class User(Base):
+    __tablename__ = "users"
+    user_id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    email = Column(String, unique=True, nullable=False)
+    username = Column(String)
+    phone_number = Column(String, unique=True, nullable=False)
+
+
 class Account(Base):
     __tablename__ = "accounts"
 

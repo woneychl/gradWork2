@@ -1,7 +1,18 @@
-from sqlalchemy import Column, String, Numeric, Boolean, ForeignKey, TIMESTAMP
+from sqlalchemy import Column, String, Boolean, TIMESTAMP, ForeignKey, Numeric
 from sqlalchemy.dialects.postgresql import UUID
+from sqlalchemy.sql import func
 from database import Base
 import uuid
+
+class User(Base):
+    __tablename__ = "users"
+
+    # 모든 서버가 공유할 고유 식별자
+    user_id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    email = Column(String, unique=True, index=True, nullable=False)
+    hashed_password = Column(String, nullable=False) # 로그인용
+    username = Column(String)
+    is_active = Column(Boolean, default=True)
 
 class Account(Base):
     __tablename__ = "accounts"
