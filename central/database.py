@@ -3,9 +3,21 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from dotenv import load_dotenv
+from fastapi_mail import ConnectionConfig
 
 # 1. .env 파일의 환경 변수를 읽어옵니다.
 load_dotenv()
+
+conf = ConnectionConfig(
+    MAIL_USERNAME = os.getenv("MAIL_USERNAME"),
+    MAIL_PASSWORD = os.getenv("MAIL_PASSWORD"),
+    MAIL_FROM = os.getenv("MAIL_FROM"),
+    MAIL_PORT = 587,
+    MAIL_SERVER = "smtp.gmail.com",
+    MAIL_STARTTLS = True,
+    MAIL_SSL_TLS = False,
+    USE_CREDENTIALS = True
+)
 
 # 2. RDS 연결 주소를 가져옵니다.
 # .env 파일
