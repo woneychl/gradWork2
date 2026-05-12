@@ -1,4 +1,4 @@
-package com.example.demo.entity;
+package com.example.choi.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -7,12 +7,12 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "users")
-@Getter @Setter
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class User {
-
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
@@ -22,11 +22,15 @@ public class User {
     @Column(unique = true, nullable = false)
     private String email;
 
-    @Column(nullable = false)
-    private String hashedPassword; // 로그인용
+    @Column(name = "hashed_password",nullable = false)
+    private String password; // 로그인용
 
     private String username;
 
     @Builder.Default
     private Boolean isActive = true;
+
+
 }
+
+

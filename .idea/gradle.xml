@@ -6,6 +6,11 @@
       <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/choi" />
         <option name="gradleJvm" value="21" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/choi" />
+          </set>
+        </option>
         <option name="resolveExternalAnnotations" value="true" />
       </GradleProjectSettings>
     </option>

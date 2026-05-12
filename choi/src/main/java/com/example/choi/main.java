@@ -2,12 +2,14 @@ package com.example.choi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableAsync;
 
+@EnableAsync
 @SpringBootApplication
-public class ChoiApplication {
+public class main {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ChoiApplication.class, args);
+		SpringApplication.run(main.class, args);
 	}
 
 }
